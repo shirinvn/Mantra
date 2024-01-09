@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MantraAppTheme {
 
+/*
 
                 Scaffold(contentWindowInsets = WindowInsets(left = 0.dp,
                     top=0.dp, bottom = 0.dp, right = 0.dp),
@@ -56,6 +57,9 @@ class MainActivity : ComponentActivity() {
                     }
                     Splashscreen(img = painterResource(id =R.drawable.splash))
                     }
+*/
+
+                MyApp()
 
 
 
@@ -88,6 +92,9 @@ fun MainScreen(){
         Text(text = "this is Main Page")
     }
 }
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
