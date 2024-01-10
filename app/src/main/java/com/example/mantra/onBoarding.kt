@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -79,6 +80,7 @@ fun AppContent(selectedCategory: MantraCategory) {
     // برای مثال، می‌تونید متدهای مرتبط با نمایش جملات مانترا بر اساس دسته‌بندی رو اینجا صدا بزنید یا کارهای دیگه انجام بدید.
     when (selectedCategory) {
         MantraCategory.LOVE -> {
+
             Log.e("ok", "love select")
             // اعمال تغییرات برای دسته مورد نظر
         }
@@ -102,5 +104,73 @@ fun MyApp() {
         }
     } else {
         AppContent(selectedCategory!!)
+    }
+}
+
+enum class Pages {
+    PAGE_ONE,
+    PAGE_TWO,
+    PAGE_THREE
+}
+
+@Composable
+fun PageOne(onNavigateToPageTwo: () -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Page One")
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = onNavigateToPageTwo) {
+            Text("Go to Page Two")
+        }
+    }
+}
+
+@Composable
+fun PageTwo(onNavigateToPageThree: () -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Page Two")
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = onNavigateToPageThree) {
+            Text("Go to Page Three")
+        }
+    }
+}
+
+@Composable
+fun PageThree() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Page Three")
+    }
+}
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MultiPageApp() {
+    var currentPage by remember { mutableStateOf(Pages.PAGE_ONE) }
+
+    Scaffold {
+        when (currentPage) {
+            Pages.PAGE_ONE -> {
+                PageOne(onNavigateToPageTwo = { currentPage = Pages.PAGE_TWO })
+            }
+            Pages.PAGE_TWO -> {
+                PageTwo(onNavigateToPageThree = { currentPage = Pages.PAGE_THREE })
+            }
+            Pages.PAGE_THREE -> {
+                PageThree()
+            }
+        }
     }
 }
