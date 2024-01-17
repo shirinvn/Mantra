@@ -81,6 +81,7 @@ fun AppContent(selectedCategory: MantraCategory) {
     when (selectedCategory) {
         MantraCategory.LOVE -> {
 
+            MainScreen()
             Log.e("ok", "love select")
             // اعمال تغییرات برای دسته مورد نظر
         }
