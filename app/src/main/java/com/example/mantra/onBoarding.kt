@@ -82,7 +82,7 @@ fun AppContent(selectedCategory: MantraCategory) {
         MantraCategory.LOVE -> {
 
             MainScreen()
-            Log.e("ok", "love select")
+            Log.e("o k", "love select")
             // اعمال تغییرات برای دسته مورد نظر
         }
         MantraCategory.PEACE -> {
