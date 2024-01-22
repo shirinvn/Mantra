@@ -13,16 +13,16 @@ import com.example.mantra.model.Mantra
 interface MantraDao {
 
     @Insert
-    fun insertMantra(mantra: Mantra)
+ suspend   fun insertMantra(mantra: Mantra)
 
 
     @Update
-    fun updateMantra(mantra: Mantra)
+  suspend  fun updateMantra(mantra: Mantra)
 
     @Delete
-    fun deleteMantra(mantra: Mantra)
+   suspend fun deleteMantra(mantra: Mantra)
 
 
     @Query("SELECT * FROM mantra order by id asc")
-    fun getAllMantras(): LiveData<List<Mantra>>
+  suspend  fun getAllMantras(): LiveData<List<Mantra>>
 }
