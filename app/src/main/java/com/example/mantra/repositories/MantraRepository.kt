@@ -21,4 +21,14 @@ class MantraRepository(application: Application) {
    suspend fun insertMantra(mantra: Mantra){
        mantraDao.insertMantra(mantra = mantra)
     }
+
+    suspend fun updateMantra(mantra: Mantra){
+        mantraDao.updateMantra(mantra = mantra)
+    }
+    suspend fun deleteMantra(mantra: Mantra){
+        mantraDao.deleteMantra(mantra = mantra)
+    }
+    fun getAllMantras(): LiveData<List<Mantra>>{
+        return allMantraList
+    }
 }
