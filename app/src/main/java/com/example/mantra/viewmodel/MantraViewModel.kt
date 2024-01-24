@@ -19,6 +19,7 @@ class MantraViewModel(application: Application):AndroidViewModel(application) {
     }
 
     suspend fun delete(mantra: Mantra){
+        if (mantra.id <= 0) return
         repository.deleteMantra(mantra)
     }
     fun getAllData():LiveData<List<Mantra>>{

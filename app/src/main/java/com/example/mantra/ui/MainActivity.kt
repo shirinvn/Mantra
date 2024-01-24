@@ -3,6 +3,7 @@ package com.example.mantra.ui.theme
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -20,23 +21,32 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import com.example.mantra.MyApp
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.mantra.R
+import com.example.mantra.viewmodel.MantraViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
+
+    private lateinit var mantraViewModel: MantraViewModel
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        mantraViewModel= ViewModelProvider(this).get(mantraViewModel::class.java)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
+        mantraViewModel.getAllData().observe(this) {
+            Toast.makeText(this, "Manta Items Changed", Toast.LENGTH_SHORT).show()
+        }
         setContent {
             MantraAppTheme {
 
 
-                MyApp()
+              //  MyApp()
 
 
 
