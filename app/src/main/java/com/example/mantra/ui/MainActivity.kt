@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
               //  MyApp()
 
-
+                MainScreen()
 
             }
         }
@@ -82,12 +82,3 @@ fun MainScreen(){
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MantraAppTheme {
-        Splashscreen(img = painterResource(id = R.drawable.splash))
-
-    }
-
-}
