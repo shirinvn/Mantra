@@ -77,6 +77,7 @@ fun MainScreen(){
         .fillMaxSize()
         .background(Color.Red)) {
         Text(text = "this is Main Page")
+        Image(painter = painterResource(id = R.drawable.splash), contentDescription ="" )
     }
 }
 
