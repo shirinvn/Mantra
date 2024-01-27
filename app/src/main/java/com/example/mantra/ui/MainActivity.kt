@@ -10,6 +10,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Card
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -65,8 +67,7 @@ fun Splashscreen(img: Painter){
         delay(1000)
         Log.e("LOG", "this is next screen")
     }
-   Image(painter = img, contentDescription = "",
-        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+
 }
 
 
@@ -76,8 +77,17 @@ fun MainScreen(){
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.Red)) {
-        Text(text = "this is Main Page")
-        Image(painter = painterResource(id = R.drawable.splash), contentDescription ="" )
+
+
+        Card (modifier = Modifier.fillMaxSize()){
+            Checkbox(
+                checked = false, onCheckedChange = {
+
+            })
+            Text(text = "this is Main Page")
+            Image(painter = painterResource(id = R.drawable.splash), contentDescription ="" )
+        }
+
     }
 }
 
