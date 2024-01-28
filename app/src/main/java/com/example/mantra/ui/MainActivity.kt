@@ -47,9 +47,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MantraAppTheme {
 
-
-              //  MyApp()
-
                 MainScreen()
 
             }
@@ -57,18 +54,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("CoroutineCreationDuringComposition")
-@Composable
-fun Splashscreen(img: Painter){
-
-    val coorutineScope = rememberCoroutineScope()
-
-    coorutineScope.launch {
-        delay(1000)
-        Log.e("LOG", "this is next screen")
-    }
-
-}
 
 
 @Composable
