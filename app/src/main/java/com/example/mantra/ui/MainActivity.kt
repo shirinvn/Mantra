@@ -64,11 +64,6 @@ fun MainScreen(){
         .background(Color.Red)) {
 
 
-        Card (modifier = Modifier.fillMaxSize()){
-            Checkbox(
-                checked = false, onCheckedChange = {
-
-            })
             Text(text = "this is Main Page")
             Image(painter = painterResource(id = R.drawable.splash), contentDescription ="" )
         }

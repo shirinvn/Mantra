@@ -8,7 +8,7 @@ import com.example.mantra.model.Mantra
 
 class MantraRepository(application: Application) {
 
-    private lateinit var mantraDao: MantraDao
+    private  var mantraDao: MantraDao
 
     private lateinit var allMantraList: LiveData<List<Mantra>>
 
